@@ -351,7 +351,7 @@ public class MainActivity extends AppCompatActivity {
                         ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
                 fullscreen.setVisibility(View.VISIBLE);
                 web.setVisibility(View.INVISIBLE);
-                setImmersive(true);
+                setFullscreenMode(true);
             }
 
             @Override
@@ -363,7 +363,7 @@ public class MainActivity extends AppCompatActivity {
                 if (customCb != null) customCb.onCustomViewHidden();
                 customCb = null;
                 web.setVisibility(View.VISIBLE);
-                setImmersive(false);
+                setFullscreenMode(false);
             }
         };
         web.setWebChromeClient(chrome);
@@ -437,7 +437,7 @@ public class MainActivity extends AppCompatActivity {
 
     // ---------- вид системных панелей ----------
 
-    private void setImmersive(boolean on) {
+    private void setFullscreenMode(boolean on) {
         WindowInsetsControllerCompat c = WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
         if (on) {
             c.hide(WindowInsetsCompat.Type.systemBars());
